@@ -32,11 +32,12 @@ module "cloudflare_dns_record" {
   source  = "gitlab.com/terraform-child-modules-48151/terraform-cloudflare-dns-record/local"
   version = "1.0.0"
 
-  zone_id = module.cloudflare_zones.result[0].id
-  content = "1.2.3.4"
+  zone_id = module.cloudflare_zone["dhoppe.dev"].id
   name    = "example.dhoppe.dev"
   ttl     = 3600
   type    = "A"
+
+  content = "1.2.3.4"
 }
 ```
 
